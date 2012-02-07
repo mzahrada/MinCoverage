@@ -1,0 +1,38 @@
+== MinCoverage
+Given several segments of line (int the X axis) with coordinates [Li,Ri]. 
+Chooses the minimal amount of them, such they would completely cover the segment [0,M]. 
+
+=== Usage
+   ~MinCoverage/bin> ruby mincoverage inputfile >> outputfile
+   ~MinCoverage/bin> ruby mincoverage input8.txt >> out8.txt
+
+=== Testing
+   ~MinCoverage/test> ruby mincoverage_test_suite.rb 
+   ~MinCoverage/test> ruby input_reader_test.rb ../bin/input2.txt
+   
+=== Input
+	2       .. number of instances
+
+	4       .. m = segment's right variable <0,m> .. <0,4>
+	-2 1    .. subsegment 1
+	1 2     .. subsegment 2
+	1 5     ..
+	0 0     .. end of instance [m=4,segs=[<-2,1>,<1,2>,<1,5>]]
+
+	3       .. second instance .. <0,3>
+	-2 1
+	0 2
+	1 6
+	0 0     .. [m=3,segs=[<-2,1>,<0,2>,<1,6>]]
+
+=== Output
+	2       .. number of subsegments which covers whole segment
+	-2 1    .. subsegment 1
+	1 5     .. subsegment 2
+
+	2
+	0 2
+	1 6
+
+=== RDoc generation
+    rdoc lib README
